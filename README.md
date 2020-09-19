@@ -9,7 +9,7 @@ Requirements:
 Installation:
 1. Open the StreamingThoughts folder on Android Studio
 2. Configure your own Firebase storage: https://firebase.google.com/docs/android/setup
-3. Configure rules for the audio folder in Firebase Storage https://firebase.google.com/docs/storage and https://firebase.google.com/docs/storage/security/get-started
+3. Configure rules for the audio folder in Firebase Storage: https://firebase.google.com/docs/storage & https://firebase.google.com/docs/storage/security/get-started
 4. Select either a real device running Android 11 or emulated device running 11
 5. Press Run to install and run the application
 
