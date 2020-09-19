@@ -5,6 +5,7 @@ An audio journaling app with cloud storage and user accounts.
 Requirements:
 - Android Device running Android 11 (optional)
 - Android Studio
+- Firebase
 
 Installation:
 1. Open the StreamingThoughts folder on Android Studio
