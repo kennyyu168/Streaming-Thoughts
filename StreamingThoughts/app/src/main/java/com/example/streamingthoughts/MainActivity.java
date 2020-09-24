@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -75,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 mLastClickTime = SystemClock.elapsedRealtime();
 
-                createSignInIntent();
+                // createSignInIntent();
+                signUserIn();
             }
         });
         // mAnon.setVisibility(View.VISIBLE);
@@ -117,6 +119,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    /**
+     * Instead of using firebase Auth UI, sign in using own interface.
+     */
+    private void signUserIn() {
+        Intent intent = new Intent(this, AuthActivity.class);
+        this.startActivity(intent);
     }
 
     /**
