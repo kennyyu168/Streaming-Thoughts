@@ -50,6 +50,8 @@ public class AuthActivity extends AppCompatActivity {
      */
     private void signInUser() {
         // Get the edit texts entered by the user
+        mEmail = findViewById(R.id.email_auth_act);
+        mPassword = findViewById(R.id.password_auth_act);
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
 
