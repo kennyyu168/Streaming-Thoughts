@@ -1,5 +1,5 @@
 # Streaming Thoughts
-An Android audio journaling app with cloud storage and user accounts.
+An Android audio journaling app with cloud storage and multiple user accounts.
 
 ## Installation/Requirements
 Since there current is no apk distribution, you will need Android Studio to run/test this application.
@@ -25,8 +25,11 @@ being addressed.
 ## Development Details
 Initial bulk working period: June 2020 - July 2020
 
+## Known Bugs
+- Sometimes upon login or sign up, there are multiple instances of the same audio clip
+
 ## Work in Progress 
-- Create an apk for easy install
+- Upload to Google Play
 - Overhauling UI elements
 - Unifying UI color scheme
 - Redo sign in flow for better user experience
