@@ -24,6 +24,7 @@ being addressed.
 
 ## Development Details
 Initial bulk working period: June 2020 - July 2020
+Second wave working period: Late September 2020 - present
 
 ## Known Bugs
 - Sometimes upon login or sign up, there are multiple instances of the same audio clip
