@@ -42,6 +42,9 @@ import static com.example.streamingthoughts.RecordingContent.loadSavedRecordings
 import static com.example.streamingthoughts.RecordingContent.removeItem;
 import static com.example.streamingthoughts.SoftKeyboard.hideSoftKeyboard;
 
+/**
+ * Main page for recording and selecting playing
+ */
 public class HomeActivity extends AppCompatActivity
         implements ListOfRecordings.OnListFragmentInteractionListener {
 
@@ -79,6 +82,7 @@ public class HomeActivity extends AppCompatActivity
 
         // Check if the recycler view adapter is not there
         if (mAdapter == null) {
+
             // Get fragment and RecyclerView from the layout and connect them
             Fragment currentFragment =
                     getSupportFragmentManager().findFragmentById(R.id.recording_list);
@@ -163,9 +167,9 @@ public class HomeActivity extends AppCompatActivity
     /**
      * Notify dataset has changed.
      */
-    public void uploadNow() {
+    public void updateNow() {
         loadSavedRecordings(uid, new OnRetrieveListListener() {
-            @Override
+                @Override
             public void onListComplete(String response) {
                 mAdapter.notifyDataSetChanged();
             }
@@ -236,12 +240,8 @@ public class HomeActivity extends AppCompatActivity
         fadeBackground.setClickable(false);
         fadeBackground.setFocusable(false);
 
-        loadSavedRecordings(uid, new OnRetrieveListListener() {
-            @Override
-            public void onListComplete(String response) {
-                mAdapter.notifyDataSetChanged();
-            }
-        });
+        // update data
+        updateNow();
     }
 
     /**
@@ -311,12 +311,8 @@ public class HomeActivity extends AppCompatActivity
         fadeBackground.setClickable(false);
         fadeBackground.setFocusable(false);
 
-        loadSavedRecordings(uid, new OnRetrieveListListener() {
-            @Override
-            public void onListComplete(String response) {
-                mAdapter.notifyDataSetChanged();
-            }
-        });
+        // Refresh data
+        updateNow();
     }
 
     /**
@@ -381,16 +377,13 @@ public class HomeActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                loadSavedRecordings(uid, new OnRetrieveListListener() {
-                    @Override
-                    public void onListComplete(String response) {
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-                // loadSavedRecordings();
+                // Load the data in
+
                 Log.d("ON RESUME", "RESUMED saved recordings");
                 // Log.d("FILE LOCATION", getApplicationContext().getExternalFilesDir(null).getAbsolutePath());
                 Log.d("DATA", "Dataset changed ");
+
+                updateNow();
             }
         });
 

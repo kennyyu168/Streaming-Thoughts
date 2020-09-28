@@ -47,6 +47,9 @@ public class RecordingContent {
         // set uid
         userId = uid;
 
+        // Log the current amount of recordings
+        Log.d("RECORDINGS BEFORE", listOfRecordings.size() + "");
+
         // Clear the list of recordings
         listOfRecordings.clear();
 
@@ -102,7 +105,6 @@ public class RecordingContent {
                 Log.e("List error", "Oh no, can't list items");
             }
         });
-
 
     }
 

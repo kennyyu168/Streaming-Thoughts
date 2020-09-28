@@ -63,6 +63,7 @@ public class AnonAuthActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                // If user successfully converted to
                                 Log.d("SUCCESS", "SUCCESSFULLY UPGRADED");
                                 startHomeActivity();
                             } else {
