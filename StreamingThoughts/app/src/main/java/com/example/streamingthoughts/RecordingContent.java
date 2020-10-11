@@ -64,31 +64,45 @@ public class RecordingContent {
             @Override
             public void onSuccess(ListResult listResult) {
 
+                // Lists out the items
                 for (StorageReference item : listResult.getItems()) {
+
+                    // Creates the uri, time, and name variable for getting data on recording
                     final Uri[] mUri = new Uri[1];
                     final long[] time = new long[1];
                     final String[] name = new String[1];
+
+                    // Creates a final reference
                     final StorageReference mReference = item;
 
-                    // all items under listRef
+                    // all items under the list
                     mReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
+                            // Get absolute path to file
                             String absolutePath = uri.toString();
+
+                            // get uri of the file
                             mUri[0] = uri;
                             Log.d("PATH", absolutePath);
+
                             // Get the date metadata
                             mReference.getMetadata().addOnSuccessListener(new OnSuccessListener<StorageMetadata>() {
                                 @Override
                                 public void onSuccess(StorageMetadata storageMetadata) {
+
+                                    // Get metadata for the recording to display to user
                                     time[0] = storageMetadata.getCreationTimeMillis();
                                     String title = storageMetadata.getCustomMetadata(TITLE);
                                     String fileName = storageMetadata.getName();
+
+                                    // Tells listener that metadata is finished being retrieved
                                     mListener.onListComplete("Complete");
+
+                                    // Load the recording onto the application
                                     loadRecording(mUri[0], time[0], title, fileName);
                                 }
                             });
-                            // loadRecording(uri, 5);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

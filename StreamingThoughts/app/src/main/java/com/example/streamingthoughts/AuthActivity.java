@@ -74,7 +74,6 @@ public class AuthActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     /**
